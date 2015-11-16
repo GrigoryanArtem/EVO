@@ -120,5 +120,10 @@ namespace EVO.Parameters
         }
 
         #endregion
+
+        public virtual bool IsNull()
+        {
+            return false;
+        }
     }
 }
