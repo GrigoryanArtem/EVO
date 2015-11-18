@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using EVO;
 using EVO.Parameters;
 
 namespace EVOTests
@@ -29,6 +28,18 @@ namespace EVOTests
 
             c = -b;
             Assert.AreEqual(new Coordinate(-10, 15), c);
+        }
+
+        [TestMethod]
+        public void NullCoordinateTest()
+        {
+            Coordinate a = new Coordinate(0,0);
+
+            Assert.IsFalse(a.IsNull());
+
+            a = new NullCoordinate();
+
+            Assert.IsTrue(a.IsNull());
         }
     }
 }

@@ -7,7 +7,7 @@ using EVO.Parameters;
 
 namespace EVO.Tiles
 {
-    interface IIntrinsicProperties
+    public interface IIntrinsicTileProperties
     {
         int Humidity { set; get; }
 

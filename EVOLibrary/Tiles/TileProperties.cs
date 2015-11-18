@@ -8,7 +8,7 @@ using EVOLibrary;
 
 namespace EVO.Tiles
 {
-    class TileProperties : ITileProperties, IIntrinsicProperties
+    public class TileProperties : ITileProperties, IIntrinsicTileProperties
     {
         #region constants
 

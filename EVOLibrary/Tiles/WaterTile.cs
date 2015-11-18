@@ -5,16 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using EVO.Parameters;
 
+
 namespace EVO.Tiles
 {
-    public interface ITileProperties
+    public class WaterTile : Tile
     {
-        int Humidity { get; }
-
-        int Passability { get; }
-
-        Coordinate Position { get; }
-
-        int Temperature { get; }
+        public WaterTile(Coordinate position)
+        {
+            _properties = new TileProperties(100, 100, position, 17);
+        }
     }
 }
