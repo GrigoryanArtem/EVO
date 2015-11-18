@@ -4,11 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EVO.Parameters;
+using EVOLibrary;
 
 namespace EVO.Tiles
 {
     class TileProperties : ITileProperties, IIntrinsicProperties
     {
+        #region constants
+
+        private const int MIN_TEMPERATURE = -273;
+        private const int MIN_PASSABIILITY = 0;
+        private const int MAX_PASSABIILITY = 100;
+        private const int MIN_HUMIDITY = 0;
+        private const int MAX_HUMIDITY = 100;
+
+        #endregion
+
         private int _humidity;
         private int _passability;
         private Coordinate _position;
@@ -36,8 +47,8 @@ namespace EVO.Tiles
         public int Humidity {
             set
             {
-                if (value < 0 || value > 100)
-                    throw new Exception();
+                if (value < MIN_HUMIDITY || value > MAX_HUMIDITY)
+                    throw new Exception(ExceptionsStrings.HumidityException);
 
                 _humidity = value;
             }
@@ -51,8 +62,8 @@ namespace EVO.Tiles
         public int Passability {
             set
             {
-                if (value < 0 || value > 100)
-                    throw new Exception();
+                if (value < MIN_PASSABIILITY || value > MAX_PASSABIILITY)
+                    throw new Exception(ExceptionsStrings.PassabilityException);
 
                 _passability = value;
             }
@@ -77,8 +88,8 @@ namespace EVO.Tiles
         public int Temperature {
             set
             {
-                if (value < 273)
-                    throw new Exception();
+                if (value < MIN_TEMPERATURE)
+                    throw new Exception(ExceptionsStrings.TemperatureException);
 
                 _temperature = value;
             }
