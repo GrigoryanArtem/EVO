@@ -8,6 +8,7 @@ namespace EVO.Tiles
 {
     public abstract class Tile
     {
+        protected string _name;
         protected IIntrinsicTileProperties _properties;
 
         public ITileProperties Properties
@@ -15,6 +16,14 @@ namespace EVO.Tiles
             get
             {
                 return (ITileProperties)_properties;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return _name;
             }
         }
     }
