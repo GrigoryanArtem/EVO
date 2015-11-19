@@ -57,6 +57,7 @@
             this.bStart.TabIndex = 3;
             this.bStart.Text = "Start";
             this.bStart.UseVisualStyleBackColor = false;
+            this.bStart.Click += new System.EventHandler(this.bStart_Click);
             // 
             // bSettings
             // 
@@ -68,6 +69,7 @@
             this.bSettings.TabIndex = 4;
             this.bSettings.Text = "Settings";
             this.bSettings.UseVisualStyleBackColor = false;
+            this.bSettings.Click += new System.EventHandler(this.bSettings_Click);
             // 
             // bExit
             // 

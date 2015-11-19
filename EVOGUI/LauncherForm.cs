@@ -21,5 +21,17 @@ namespace EVOGUI
         {
             Close();
         }
+
+        private void bStart_Click(object sender, EventArgs e)
+        {
+            MainForm mf = new MainForm();
+            mf.Show();
+        }
+
+        private void bSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForm sf = new SettingsForm();
+            sf.ShowDialog();
+        }
     }
 }
