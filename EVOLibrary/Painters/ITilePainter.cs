@@ -10,6 +10,6 @@ namespace EVO.Painters
 {
     public interface ITilePainter
     {
-        Bitmap Draw(Tile tile);
+        Bitmap Draw();
     }
 }

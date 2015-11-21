@@ -9,7 +9,7 @@ using EVOLibrary;
 
 namespace EVO.Painters
 {
-    public class WaterTilePainter : ITilePainter
+    public class ForestTilePainter : ITilePainter
     {
         private const int IMAGE_SIZE = 256;
 
@@ -17,7 +17,7 @@ namespace EVO.Painters
         {
             Bitmap image = new Bitmap(IMAGE_SIZE, IMAGE_SIZE);
 
-            image = Textures.WaterTileTexture;
+            image = Textures.ForestTileTexture;
 
             return image;
         }
