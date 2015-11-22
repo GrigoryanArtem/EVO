@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EVO.Painters;
+using System.Drawing;
 
 namespace EVO.Tiles
 {
@@ -10,6 +12,7 @@ namespace EVO.Tiles
     {
         protected string _name;
         protected IIntrinsicTileProperties _properties;
+        protected ITilePainter _painter;
 
         public ITileProperties Properties
         {
@@ -25,6 +28,11 @@ namespace EVO.Tiles
             {
                 return _name;
             }
+        }
+
+        public Bitmap Draw()
+        {
+            return _painter.Draw();
         }
     }
 }

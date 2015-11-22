@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EVO.Parameters;
 using EVOLibrary;
+using EVO.Painters;
 
 namespace EVO.Tiles
 {
@@ -12,6 +13,7 @@ namespace EVO.Tiles
     {
         public PlainTile(Coordinate position)
         {
+            _painter = new PlainTilePainter();
             _name = MainStrings.PlainTileName;
             _properties = new TileProperties(40, 80, position, 28);
         }
