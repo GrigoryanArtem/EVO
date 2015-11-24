@@ -6,20 +6,24 @@ using System.Threading.Tasks;
 using System.Drawing;
 using EVO.Tiles;
 using EVOLibrary;
+using Tao.OpenGl;
 
 namespace EVO.Painters
 {
     public class DesertTilePainter : ITilePainter
     {
-        private const int IMAGE_SIZE = 256;
-
-        public Bitmap Draw()
+        const double TILE_SIZE = 1.0;
+        public void Draw(Tile tile)
         {
-            Bitmap image = new Bitmap(IMAGE_SIZE, IMAGE_SIZE);
+            Gl.glColor3d(0.6, 0.6, 0.1);
+            Gl.glBegin(Gl.GL_QUADS);
 
-            image = Textures.DesertTileTexture;
+            Gl.glVertex2d(tile.Properties.Position.X, tile.Properties.Position.Y);
+            Gl.glVertex2d(tile.Properties.Position.X + TILE_SIZE, tile.Properties.Position.Y);
+            Gl.glVertex2d(tile.Properties.Position.X + TILE_SIZE, tile.Properties.Position.Y + TILE_SIZE);
+            Gl.glVertex2d(tile.Properties.Position.X, tile.Properties.Position.Y + TILE_SIZE);
 
-            return image;
+            Gl.glEnd();
         }
     }
 }

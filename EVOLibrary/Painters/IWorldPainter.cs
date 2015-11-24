@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using EVO.Tiles;
+using EVO.Parameters;
+using EVO.Map;
 
 namespace EVO.Painters
 {
-    public interface ITilePainter
+    public interface IWorldPainter
     {
-        void Draw(Tile tile);
+        void Draw(World world);
     }
 }
