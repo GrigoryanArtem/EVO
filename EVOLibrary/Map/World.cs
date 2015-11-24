@@ -74,9 +74,9 @@ namespace EVO.Map
             return _world[position];
         }
 
-        public Bitmap Draw(int width, int height)
+        public void Draw()
         {
-            return _painter.Draw(this, width, height);
+            _painter.Draw(this);
         }
 
         public void StaticGeneration(ISimpleWorldGenerator generator)
