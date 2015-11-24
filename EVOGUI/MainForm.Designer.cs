@@ -31,16 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this._mainDrawingBox = new Tao.Platform.Windows.SimpleOpenGlControl();
             this.tabControl = new System.Windows.Forms.TabControl();
             this._tpWorld = new System.Windows.Forms.TabPage();
-            this._tpOrganism = new System.Windows.Forms.TabPage();
-            this._tpHistory = new System.Windows.Forms.TabPage();
-            this._tpStatistic = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
+            this._tpOrganism = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
+            this._tpHistory = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
+            this._tpStatistic = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -67,6 +69,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this._mainDrawingBox);
             this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(6, 3, 3, 3);
             // 
             // splitContainer1.Panel2
@@ -75,6 +78,24 @@
             this.splitContainer1.Size = new System.Drawing.Size(704, 436);
             this.splitContainer1.SplitterDistance = 455;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // _mainDrawingBox
+            // 
+            this._mainDrawingBox.AccumBits = ((byte)(0));
+            this._mainDrawingBox.AutoCheckErrors = false;
+            this._mainDrawingBox.AutoFinish = false;
+            this._mainDrawingBox.AutoMakeCurrent = true;
+            this._mainDrawingBox.AutoSwapBuffers = true;
+            this._mainDrawingBox.BackColor = System.Drawing.Color.Black;
+            this._mainDrawingBox.ColorBits = ((byte)(32));
+            this._mainDrawingBox.DepthBits = ((byte)(16));
+            this._mainDrawingBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._mainDrawingBox.Location = new System.Drawing.Point(6, 3);
+            this._mainDrawingBox.Name = "_mainDrawingBox";
+            this._mainDrawingBox.Size = new System.Drawing.Size(446, 430);
+            this._mainDrawingBox.StencilBits = ((byte)(0));
+            this._mainDrawingBox.TabIndex = 0;
+            this._mainDrawingBox.SizeChanged += new System.EventHandler(this.mainBoxSizeChanged);
             // 
             // tabControl
             // 
@@ -104,37 +125,6 @@
             this._tpWorld.Text = "World";
             this._tpWorld.UseVisualStyleBackColor = true;
             // 
-            // _tpOrganism
-            // 
-            this._tpOrganism.Controls.Add(this.label2);
-            this._tpOrganism.Location = new System.Drawing.Point(4, 4);
-            this._tpOrganism.Name = "_tpOrganism";
-            this._tpOrganism.Padding = new System.Windows.Forms.Padding(3);
-            this._tpOrganism.Size = new System.Drawing.Size(218, 428);
-            this._tpOrganism.TabIndex = 1;
-            this._tpOrganism.Text = "Organism";
-            this._tpOrganism.UseVisualStyleBackColor = true;
-            // 
-            // _tpHistory
-            // 
-            this._tpHistory.Controls.Add(this.label3);
-            this._tpHistory.Location = new System.Drawing.Point(4, 4);
-            this._tpHistory.Name = "_tpHistory";
-            this._tpHistory.Size = new System.Drawing.Size(218, 428);
-            this._tpHistory.TabIndex = 2;
-            this._tpHistory.Text = "History";
-            this._tpHistory.UseVisualStyleBackColor = true;
-            // 
-            // _tpStatistic
-            // 
-            this._tpStatistic.Controls.Add(this.label4);
-            this._tpStatistic.Location = new System.Drawing.Point(4, 4);
-            this._tpStatistic.Name = "_tpStatistic";
-            this._tpStatistic.Size = new System.Drawing.Size(218, 428);
-            this._tpStatistic.TabIndex = 3;
-            this._tpStatistic.Text = "Statistic";
-            this._tpStatistic.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -147,6 +137,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Coming soon...";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // _tpOrganism
+            // 
+            this._tpOrganism.Controls.Add(this.label2);
+            this._tpOrganism.Location = new System.Drawing.Point(4, 4);
+            this._tpOrganism.Name = "_tpOrganism";
+            this._tpOrganism.Padding = new System.Windows.Forms.Padding(3);
+            this._tpOrganism.Size = new System.Drawing.Size(218, 428);
+            this._tpOrganism.TabIndex = 1;
+            this._tpOrganism.Text = "Organism";
+            this._tpOrganism.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -161,6 +162,16 @@
             this.label2.Text = "Coming soon...";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // _tpHistory
+            // 
+            this._tpHistory.Controls.Add(this.label3);
+            this._tpHistory.Location = new System.Drawing.Point(4, 4);
+            this._tpHistory.Name = "_tpHistory";
+            this._tpHistory.Size = new System.Drawing.Size(218, 428);
+            this._tpHistory.TabIndex = 2;
+            this._tpHistory.Text = "History";
+            this._tpHistory.UseVisualStyleBackColor = true;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -173,6 +184,16 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Coming soon...";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // _tpStatistic
+            // 
+            this._tpStatistic.Controls.Add(this.label4);
+            this._tpStatistic.Location = new System.Drawing.Point(4, 4);
+            this._tpStatistic.Name = "_tpStatistic";
+            this._tpStatistic.Size = new System.Drawing.Size(218, 428);
+            this._tpStatistic.TabIndex = 3;
+            this._tpStatistic.Text = "Statistic";
+            this._tpStatistic.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -199,6 +220,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "E.V.O";
+            this.Load += new System.EventHandler(this.MainFormLoad);
+            this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -229,5 +252,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private Tao.Platform.Windows.SimpleOpenGlControl _mainDrawingBox;
     }
 }
