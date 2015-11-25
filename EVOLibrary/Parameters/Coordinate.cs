@@ -25,6 +25,9 @@ namespace EVO.Parameters
             _y = y;
         }
 
+        public Coordinate(Coordinate coordinate) 
+            : this(coordinate.X, coordinate.Y) { }
+
         #endregion
 
         #region Auto implemented properties
