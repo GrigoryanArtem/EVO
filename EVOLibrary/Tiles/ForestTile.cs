@@ -20,5 +20,10 @@ namespace EVO.Tiles
             _name = MainStrings.ForestTileName;
             _properties = new TileProperties(75, 25, position, 20);
         }
+
+        public override Tile Copy()
+        {
+            return new ForestTile(this);
+        }
     }
 }

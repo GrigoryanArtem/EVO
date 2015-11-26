@@ -20,5 +20,10 @@ namespace EVO.Tiles
             _name = MainStrings.DesertTileName;
             _properties = new TileProperties(0, 50, position, 40);
         }
+
+        public override Tile Copy()
+        {
+            return new DesertTile(this);
+        }
     }
 }

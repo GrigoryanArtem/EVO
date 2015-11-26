@@ -20,5 +20,10 @@ namespace EVO.Tiles
             _name = MainStrings.PlainTileName;
             _properties = new TileProperties(40, 80, position, 28);
         }
+
+        public override Tile Copy()
+        {
+            return new PlainTile(this);
+        }
     }
 }

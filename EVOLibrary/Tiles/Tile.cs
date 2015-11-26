@@ -34,5 +34,7 @@ namespace EVO.Tiles
         {
             _painter.Draw(this);
         }
+
+        abstract public Tile Copy();
     }
 }

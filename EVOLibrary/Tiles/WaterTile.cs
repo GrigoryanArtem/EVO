@@ -20,5 +20,10 @@ namespace EVO.Tiles
             _name = MainStrings.WaterTileName;
             _properties = new TileProperties(100, 100, position, 17);
         }
+
+        public override Tile Copy()
+        {
+            return new WaterTile(this);
+        }
     }
 }
