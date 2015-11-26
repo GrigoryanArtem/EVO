@@ -14,6 +14,9 @@ namespace EVO.Tiles
         public WaterTile(Tile tile) 
             : this(new Coordinate(tile.Properties.Position)){ }
 
+        public WaterTile(Tile tile, Coordinate newCoordinate)
+            : this(newCoordinate){ }
+
         public WaterTile(Coordinate position)
         {
             _painter = new WaterTilePainter();
@@ -24,6 +27,11 @@ namespace EVO.Tiles
         public override Tile Copy()
         {
             return new WaterTile(this);
+        }
+
+        public override Tile Copy(Coordinate newCoordinate)
+        {
+            return new WaterTile(this, newCoordinate);
         }
     }
 }

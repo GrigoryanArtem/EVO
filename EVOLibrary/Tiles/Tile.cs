@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EVO.Painters;
 using System.Drawing;
+using EVO.Parameters;
 
 namespace EVO.Tiles
 {
@@ -36,5 +37,7 @@ namespace EVO.Tiles
         }
 
         abstract public Tile Copy();
+
+        abstract public Tile Copy(Coordinate newCoordinate);
     }
 }

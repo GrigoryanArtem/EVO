@@ -14,6 +14,9 @@ namespace EVO.Tiles
         public DesertTile(Tile tile) 
             : this(new Coordinate(tile.Properties.Position)){ }
 
+        public DesertTile(Tile tile, Coordinate newCoordinate)
+            : this(newCoordinate){ }
+
         public DesertTile(Coordinate position)
         {
             _painter = new DesertTilePainter();
@@ -24,6 +27,11 @@ namespace EVO.Tiles
         public override Tile Copy()
         {
             return new DesertTile(this);
+        }
+
+        public override Tile Copy(Coordinate newCoordinate)
+        {
+            return new DesertTile(this, newCoordinate);
         }
     }
 }

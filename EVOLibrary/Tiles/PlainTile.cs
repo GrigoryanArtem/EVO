@@ -14,6 +14,9 @@ namespace EVO.Tiles
         public PlainTile(Tile tile) 
             : this(new Coordinate(tile.Properties.Position)){ }
 
+        public PlainTile(Tile tile, Coordinate newCoordinate)
+            : this(newCoordinate){ }
+
         public PlainTile(Coordinate position)
         {
             _painter = new PlainTilePainter();
@@ -24,6 +27,11 @@ namespace EVO.Tiles
         public override Tile Copy()
         {
             return new PlainTile(this);
+        }
+
+        public override Tile Copy(Coordinate newCoordinate)
+        {
+            return new PlainTile(this, newCoordinate);
         }
     }
 }

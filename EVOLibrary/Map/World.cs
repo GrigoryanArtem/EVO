@@ -79,7 +79,7 @@ namespace EVO.Map
             _painter.Draw(this);
         }
 
-        public void StaticGeneration(ISimpleWorldGenerator generator)
+        public void Generation(IWorldGenerator generator)
         {
             _world = generator.Generate(Width, Height);
         }

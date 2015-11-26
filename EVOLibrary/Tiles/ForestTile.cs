@@ -14,6 +14,9 @@ namespace EVO.Tiles
         public ForestTile(Tile tile) 
             : this(new Coordinate(tile.Properties.Position)){ }
 
+        public ForestTile(Tile tile, Coordinate newCoordinate)
+            : this(newCoordinate){ }
+
         public ForestTile(Coordinate position)
         {
             _painter = new ForestTilePainter();
@@ -24,6 +27,11 @@ namespace EVO.Tiles
         public override Tile Copy()
         {
             return new ForestTile(this);
+        }
+
+        public override Tile Copy(Coordinate newCoordinate)
+        {
+            return new ForestTile(this, newCoordinate);
         }
     }
 }

@@ -8,7 +8,7 @@ using EVO.Tiles;
 
 namespace EVO.Map
 {
-    public interface ISimpleWorldGenerator
+    public interface IWorldGenerator
     {
         Dictionary<Coordinate, Tile> Generate(int width, int height);
     }
