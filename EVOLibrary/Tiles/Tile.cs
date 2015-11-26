@@ -30,9 +30,9 @@ namespace EVO.Tiles
             }
         }
 
-        public Bitmap Draw()
+        public void Draw()
         {
-            return _painter.Draw();
+            _painter.Draw(this);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace EVO.Tiles
         private Coordinate _position;
         private int _temperature;
 
-        
+        #region constructors
         public TileProperties()
         {
             Humidity = 0;
@@ -41,6 +41,24 @@ namespace EVO.Tiles
             Position = position;
             Temperature = temperature;
         }
+
+        public TileProperties(ITileProperties tileProperties)
+        {
+            Humidity = tileProperties.Humidity;
+            Passability = tileProperties.Passability;
+            Position = new Coordinate(tileProperties.Position);
+            Temperature = tileProperties.Temperature;
+        }
+
+        public TileProperties(IIntrinsicTileProperties tileProperties)
+        {
+            Humidity = tileProperties.Humidity;
+            Passability = tileProperties.Passability;
+            Position = new Coordinate(tileProperties.Position);
+            Temperature = tileProperties.Temperature;
+        }
+
+        #endregion
 
         #region auto implemented properties
 

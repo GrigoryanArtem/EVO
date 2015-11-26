@@ -11,6 +11,9 @@ namespace EVO.Tiles
 {
     public class DesertTile : Tile
     {
+        public DesertTile(Tile tile) 
+            : this(new Coordinate(tile.Properties.Position)){ }
+
         public DesertTile(Coordinate position)
         {
             _painter = new DesertTilePainter();

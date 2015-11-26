@@ -11,6 +11,9 @@ namespace EVO.Tiles
 {
     public class PlainTile : Tile
     {
+        public PlainTile(Tile tile) 
+            : this(new Coordinate(tile.Properties.Position)){ }
+
         public PlainTile(Coordinate position)
         {
             _painter = new PlainTilePainter();

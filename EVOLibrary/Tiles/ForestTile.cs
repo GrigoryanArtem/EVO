@@ -11,6 +11,9 @@ namespace EVO.Tiles
 {
     public class ForestTile : Tile
     {
+        public ForestTile(Tile tile) 
+            : this(new Coordinate(tile.Properties.Position)){ }
+
         public ForestTile(Coordinate position)
         {
             _painter = new ForestTilePainter();

@@ -11,6 +11,9 @@ namespace EVO.Tiles
 {
     public class WaterTile : Tile
     {
+        public WaterTile(Tile tile) 
+            : this(new Coordinate(tile.Properties.Position)){ }
+
         public WaterTile(Coordinate position)
         {
             _painter = new WaterTilePainter();
