@@ -7,7 +7,7 @@ using EVO.Parameters;
 using EVO.Tiles;
 using System.Drawing;
 using EVO.Painters;
-using System.Xml;
+using System.Xml.Linq;
 
 namespace EVO.Map
 {
@@ -88,50 +88,24 @@ namespace EVO.Map
 
         public void Save(string path)
         {
-            XmlTextWriter textWritter = new XmlTextWriter(path, Encoding.UTF8);
-            textWritter.WriteStartDocument();
-            textWritter.WriteStartElement("world");
-            textWritter.WriteEndElement();
-            textWritter.Close();
+            XElement tiles = new XElement(EVOLibrary.MainStrings.TilesTagName);
 
-            XmlDocument saveFile = new XmlDocument();
-            saveFile.Load(path);
-
-            XmlNode properties = saveFile.CreateElement("properties");
-            saveFile.DocumentElement.AppendChild(properties);
-
-            XmlAttribute name = saveFile.CreateAttribute("name");
-            name.Value = _name;
-            properties.Attributes.Append(name);
-
-            XmlAttribute width = saveFile.CreateAttribute("width");
-            width.Value = _width.ToString();
-            properties.Attributes.Append(width);
-
-            XmlAttribute height = saveFile.CreateAttribute("height");
-            height.Value = _height.ToString();
-            properties.Attributes.Append(height);
-
-            XmlNode tiles = saveFile.CreateElement("tiles");
-            saveFile.DocumentElement.AppendChild(tiles);
-
-            foreach (var tile in _world)
+            foreach(var tile in _world)
             {
-                XmlNode tileXml = saveFile.CreateElement("tile");
-                tiles.AppendChild(tileXml);
+                XElement tileElement = new XElement(EVOLibrary.MainStrings.TileTagName,
+                    new XAttribute(EVOLibrary.MainStrings.NameAttributeName, tile.Value.ToString()),
+                    new XAttribute(EVOLibrary.MainStrings.PositionXAttributeName, tile.Value.Properties.Position.X),
+                    new XAttribute(EVOLibrary.MainStrings.PositionYAttributeName, tile.Value.Properties.Position.Y));
 
-                XmlAttribute positionX = saveFile.CreateAttribute("positionX");
-                positionX.Value = tile.Key.X.ToString();
-                tileXml.Attributes.Append(positionX);
-
-                XmlAttribute positionY= saveFile.CreateAttribute("positionY");
-                positionY.Value = tile.Key.Y.ToString();
-                tileXml.Attributes.Append(positionY);
-
-                XmlAttribute tileName = saveFile.CreateAttribute("name");
-                tileName.Value = tile.Value.ToString();
-                tileXml.Attributes.Append(tileName);
+                tiles.Add(tileElement);
             }
+
+            XDocument saveFile = new XDocument(new XElement(EVOLibrary.MainStrings.MainTagName, 
+                new XElement(EVOLibrary.MainStrings.PropertiesTagName,
+                    new XAttribute(EVOLibrary.MainStrings.NameAttributeName, _name),
+                    new XAttribute(EVOLibrary.MainStrings.WidthAttributeName, _width),
+                    new XAttribute(EVOLibrary.MainStrings.HeightAttributeName, _height)), 
+                tiles));
 
             saveFile.Save(path);
         }
