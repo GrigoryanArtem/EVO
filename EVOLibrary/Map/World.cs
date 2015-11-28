@@ -8,6 +8,7 @@ using EVO.Tiles;
 using System.Drawing;
 using EVO.Painters;
 using System.Xml.Linq;
+using EVOLibrary;
 
 namespace EVO.Map
 {
@@ -88,23 +89,23 @@ namespace EVO.Map
 
         public void Save(string path)
         {
-            XElement tiles = new XElement(EVOLibrary.MainStrings.TilesTagName);
+            XElement tiles = new XElement(MainStrings.TilesTagName);
 
             foreach(var tile in _world)
             {
-                XElement tileElement = new XElement(EVOLibrary.MainStrings.TileTagName,
-                    new XAttribute(EVOLibrary.MainStrings.NameAttributeName, tile.Value.ToString()),
-                    new XAttribute(EVOLibrary.MainStrings.PositionXAttributeName, tile.Value.Properties.Position.X),
-                    new XAttribute(EVOLibrary.MainStrings.PositionYAttributeName, tile.Value.Properties.Position.Y));
+                XElement tileElement = new XElement(MainStrings.TileTagName,
+                    new XAttribute(MainStrings.NameAttributeName, tile.Value.ToString()),
+                    new XAttribute(MainStrings.PositionXAttributeName, tile.Value.Properties.Position.X),
+                    new XAttribute(MainStrings.PositionYAttributeName, tile.Value.Properties.Position.Y));
 
                 tiles.Add(tileElement);
             }
 
-            XDocument saveFile = new XDocument(new XElement(EVOLibrary.MainStrings.MainTagName, 
-                new XElement(EVOLibrary.MainStrings.PropertiesTagName,
-                    new XAttribute(EVOLibrary.MainStrings.NameAttributeName, _name),
-                    new XAttribute(EVOLibrary.MainStrings.WidthAttributeName, _width),
-                    new XAttribute(EVOLibrary.MainStrings.HeightAttributeName, _height)), 
+            XDocument saveFile = new XDocument(new XElement(MainStrings.MainTagName, 
+                new XElement(MainStrings.PropertiesTagName,
+                    new XAttribute(MainStrings.NameAttributeName, _name),
+                    new XAttribute(MainStrings.WidthAttributeName, _width),
+                    new XAttribute(MainStrings.HeightAttributeName, _height)), 
                 tiles));
 
             saveFile.Save(path);
@@ -112,7 +113,27 @@ namespace EVO.Map
 
         public void Load(string path)
         {
-            //TODO
+            _world.Clear();
+
+            XDocument loadFile = XDocument.Load(path);
+
+            XElement mainElement = loadFile.Element(MainStrings.MainTagName);
+            XElement properties = mainElement.Element(MainStrings.PropertiesTagName);
+
+            _name = properties.Attribute(MainStrings.NameAttributeName).Value;
+            _width = Convert.ToInt32(properties.Attribute(MainStrings.WidthAttributeName).Value);
+            _height = Convert.ToInt32(properties.Attribute(MainStrings.HeightAttributeName).Value);
+
+            XElement tiles = mainElement.Element(MainStrings.TilesTagName);
+
+            foreach(var tile in tiles.Elements(MainStrings.TileTagName))
+            {
+                Coordinate tileCoordinate = new Coordinate(Convert.ToDouble(tile.Attribute(MainStrings.PositionXAttributeName).Value),
+                    Convert.ToDouble(tile.Attribute(MainStrings.PositionYAttributeName).Value));
+
+                _world.Add(tileCoordinate, TilesManager.GetTile(tile.Attribute(MainStrings.NameAttributeName).Value,
+                    tileCoordinate));
+            }
         }
     }
 }
