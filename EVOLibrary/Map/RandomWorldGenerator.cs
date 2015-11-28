@@ -109,8 +109,7 @@ namespace EVO.Map
             foreach (var tile in map) {
                 int newTileKey = tile.Value;
 
-                if(rand.Next(2) == 0)
-                    newTileKey = SmoothId(map, tile.Key);
+                newTileKey = SmoothId(map, tile.Key);
 
                 newMap.Add(tile.Key, newTileKey);
             }
