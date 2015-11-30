@@ -34,13 +34,14 @@
             this._mainDrawingBox = new Tao.Platform.Windows.SimpleOpenGlControl();
             this.tabControl = new System.Windows.Forms.TabControl();
             this._tpWorld = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this._tpOrganism = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this._tpHistory = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this._tpStatistic = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
+            this._tlpWorld = new System.Windows.Forms.TableLayoutPanel();
+            this._lTileName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -50,6 +51,7 @@
             this._tpOrganism.SuspendLayout();
             this._tpHistory.SuspendLayout();
             this._tpStatistic.SuspendLayout();
+            this._tlpWorld.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -96,6 +98,7 @@
             this._mainDrawingBox.StencilBits = ((byte)(0));
             this._mainDrawingBox.TabIndex = 0;
             this._mainDrawingBox.SizeChanged += new System.EventHandler(this.mainBoxSizeChanged);
+            this._mainDrawingBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mainDrawingBoxMouseClick);
             // 
             // tabControl
             // 
@@ -116,7 +119,7 @@
             // _tpWorld
             // 
             this._tpWorld.BackColor = System.Drawing.Color.Transparent;
-            this._tpWorld.Controls.Add(this.label1);
+            this._tpWorld.Controls.Add(this._tlpWorld);
             this._tpWorld.Location = new System.Drawing.Point(4, 4);
             this._tpWorld.Name = "_tpWorld";
             this._tpWorld.Padding = new System.Windows.Forms.Padding(3);
@@ -124,19 +127,6 @@
             this._tpWorld.TabIndex = 0;
             this._tpWorld.Text = "World";
             this._tpWorld.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 396);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(188, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Coming soon...";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // _tpOrganism
             // 
@@ -208,6 +198,33 @@
             this.label4.Text = "Coming soon...";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // _tlpWorld
+            // 
+            this._tlpWorld.ColumnCount = 1;
+            this._tlpWorld.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._tlpWorld.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this._tlpWorld.Controls.Add(this._lTileName, 0, 0);
+            this._tlpWorld.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._tlpWorld.Location = new System.Drawing.Point(3, 3);
+            this._tlpWorld.Name = "_tlpWorld";
+            this._tlpWorld.RowCount = 2;
+            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.398104F));
+            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.6019F));
+            this._tlpWorld.Size = new System.Drawing.Size(212, 422);
+            this._tlpWorld.TabIndex = 0;
+            // 
+            // _lTileName
+            // 
+            this._lTileName.AutoSize = true;
+            this._lTileName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._lTileName.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._lTileName.Location = new System.Drawing.Point(3, 0);
+            this._lTileName.Name = "_lTileName";
+            this._lTileName.Size = new System.Drawing.Size(206, 26);
+            this._lTileName.TabIndex = 0;
+            this._lTileName.Text = "Tile Name";
+            this._lTileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,6 +233,7 @@
             this.ClientSize = new System.Drawing.Size(704, 460);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -227,13 +245,14 @@
             this.splitContainer1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this._tpWorld.ResumeLayout(false);
-            this._tpWorld.PerformLayout();
             this._tpOrganism.ResumeLayout(false);
             this._tpOrganism.PerformLayout();
             this._tpHistory.ResumeLayout(false);
             this._tpHistory.PerformLayout();
             this._tpStatistic.ResumeLayout(false);
             this._tpStatistic.PerformLayout();
+            this._tlpWorld.ResumeLayout(false);
+            this._tlpWorld.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,10 +267,11 @@
         private System.Windows.Forms.TabPage _tpOrganism;
         private System.Windows.Forms.TabPage _tpHistory;
         private System.Windows.Forms.TabPage _tpStatistic;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private Tao.Platform.Windows.SimpleOpenGlControl _mainDrawingBox;
+        private System.Windows.Forms.TableLayoutPanel _tlpWorld;
+        private System.Windows.Forms.Label _lTileName;
     }
 }

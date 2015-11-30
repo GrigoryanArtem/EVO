@@ -33,6 +33,8 @@
             this.bStart = new System.Windows.Forms.Button();
             this.bSettings = new System.Windows.Forms.Button();
             this.bExit = new System.Windows.Forms.Button();
+            this._cbSelectWorld = new System.Windows.Forms.ComboBox();
+            this.lName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lTitle
@@ -51,44 +53,66 @@
             // 
             this.bStart.BackColor = System.Drawing.Color.White;
             this.bStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bStart.Location = new System.Drawing.Point(24, 136);
+            this.bStart.Location = new System.Drawing.Point(24, 159);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(132, 45);
             this.bStart.TabIndex = 3;
-            this.bStart.Text = "Start";
+            this.bStart.Text = "Старт";
             this.bStart.UseVisualStyleBackColor = false;
-            this.bStart.Click += new System.EventHandler(this.bStart_Click);
+            this.bStart.Click += new System.EventHandler(this.bStartClick);
             // 
             // bSettings
             // 
             this.bSettings.BackColor = System.Drawing.Color.White;
             this.bSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bSettings.Location = new System.Drawing.Point(24, 187);
+            this.bSettings.Location = new System.Drawing.Point(24, 210);
             this.bSettings.Name = "bSettings";
             this.bSettings.Size = new System.Drawing.Size(132, 45);
             this.bSettings.TabIndex = 4;
-            this.bSettings.Text = "Settings";
+            this.bSettings.Text = "Настройки";
             this.bSettings.UseVisualStyleBackColor = false;
-            this.bSettings.Click += new System.EventHandler(this.bSettings_Click);
+            this.bSettings.Click += new System.EventHandler(this.bSettingsClick);
             // 
             // bExit
             // 
             this.bExit.BackColor = System.Drawing.Color.White;
+            this.bExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bExit.Location = new System.Drawing.Point(24, 238);
+            this.bExit.Location = new System.Drawing.Point(24, 261);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(132, 45);
             this.bExit.TabIndex = 5;
-            this.bExit.Text = "Exit";
+            this.bExit.Text = "Выход";
             this.bExit.UseVisualStyleBackColor = false;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
+            // 
+            // _cbSelectWorld
+            // 
+            this._cbSelectWorld.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cbSelectWorld.FormattingEnabled = true;
+            this._cbSelectWorld.Location = new System.Drawing.Point(24, 117);
+            this._cbSelectWorld.Name = "_cbSelectWorld";
+            this._cbSelectWorld.Size = new System.Drawing.Size(132, 21);
+            this._cbSelectWorld.TabIndex = 6;
+            // 
+            // lName
+            // 
+            this.lName.AutoSize = true;
+            this.lName.BackColor = System.Drawing.Color.Transparent;
+            this.lName.Location = new System.Drawing.Point(21, 101);
+            this.lName.Name = "lName";
+            this.lName.Size = new System.Drawing.Size(80, 13);
+            this.lName.TabIndex = 7;
+            this.lName.Text = "Выберете мир";
             // 
             // LauncherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::EVOGUI.Properties.Resources.LauncherBackground;
-            this.ClientSize = new System.Drawing.Size(178, 318);
+            this.ClientSize = new System.Drawing.Size(178, 321);
+            this.Controls.Add(this.lName);
+            this.Controls.Add(this._cbSelectWorld);
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.bSettings);
             this.Controls.Add(this.bStart);
@@ -99,6 +123,7 @@
             this.MinimizeBox = false;
             this.Name = "LauncherForm";
             this.Text = "EVO";
+            this.Load += new System.EventHandler(this.LauncherFormLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,6 +135,8 @@
         private System.Windows.Forms.Button bStart;
         private System.Windows.Forms.Button bSettings;
         private System.Windows.Forms.Button bExit;
+        private System.Windows.Forms.ComboBox _cbSelectWorld;
+        private System.Windows.Forms.Label lName;
     }
 }
 
