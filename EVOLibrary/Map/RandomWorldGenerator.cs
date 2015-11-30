@@ -18,7 +18,7 @@ namespace EVO.Map
                 throw new Exception(EVOLibrary.ExceptionsStrings.SmoothingException);
 
             _numberOfSmoothing = numberOfSmoothing;
-            _tileList = tileList;
+            _tileList = new List<KeyValuePair<Tile, int>>(tileList);
             SetRealPriority();
         }
 
