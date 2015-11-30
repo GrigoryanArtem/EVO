@@ -99,23 +99,23 @@ namespace EVO.Map
         #region data exchange
         public void Save(string path)
         {
-            XElement tiles = new XElement(MainStrings.TilesTagName);
+            XElement tiles = new XElement(Tags.TilesTag);
 
             foreach(var tile in _world)
             {
-                XElement tileElement = new XElement(MainStrings.TileTagName,
-                    new XAttribute(MainStrings.NameAttributeName, tile.Value.ToString()),
-                    new XAttribute(MainStrings.PositionXAttributeName, tile.Value.Properties.Position.X),
-                    new XAttribute(MainStrings.PositionYAttributeName, tile.Value.Properties.Position.Y));
+                XElement tileElement = new XElement(Tags.TileTag,
+                    new XAttribute(Tags.NameTag, tile.Value.ToString()),
+                    new XAttribute(Tags.XPositionTag, tile.Value.Properties.Position.X),
+                    new XAttribute(Tags.YPositionTag, tile.Value.Properties.Position.Y));
 
                 tiles.Add(tileElement);
             }
 
-            XDocument saveFile = new XDocument(new XElement(MainStrings.MainTagName, 
-                new XElement(MainStrings.PropertiesTagName,
-                    new XAttribute(MainStrings.NameAttributeName, _name),
-                    new XAttribute(MainStrings.WidthAttributeName, _width),
-                    new XAttribute(MainStrings.HeightAttributeName, _height)), 
+            XDocument saveFile = new XDocument(new XElement(Tags.WorldTag, 
+                new XElement(Tags.PropertiesTag,
+                    new XAttribute(Tags.NameTag, _name),
+                    new XAttribute(Tags.WidthTag, _width),
+                    new XAttribute(Tags.HeightTag, _height)), 
                 tiles));
 
             saveFile.Save(path);
@@ -127,21 +127,21 @@ namespace EVO.Map
 
             XDocument loadFile = XDocument.Load(path);
 
-            XElement mainElement = loadFile.Element(MainStrings.MainTagName);
-            XElement properties = mainElement.Element(MainStrings.PropertiesTagName);
+            XElement mainElement = loadFile.Element(Tags.WorldTag);
+            XElement properties = mainElement.Element(Tags.PropertiesTag);
 
-            _name = properties.Attribute(MainStrings.NameAttributeName).Value;
-            _width = Convert.ToInt32(properties.Attribute(MainStrings.WidthAttributeName).Value);
-            _height = Convert.ToInt32(properties.Attribute(MainStrings.HeightAttributeName).Value);
+            _name = properties.Attribute(Tags.NameTag).Value;
+            _width = Convert.ToInt32(properties.Attribute(Tags.WidthTag).Value);
+            _height = Convert.ToInt32(properties.Attribute(Tags.HeightTag).Value);
 
-            XElement tiles = mainElement.Element(MainStrings.TilesTagName);
+            XElement tiles = mainElement.Element(Tags.TilesTag);
 
-            foreach(var tile in tiles.Elements(MainStrings.TileTagName))
+            foreach(var tile in tiles.Elements(Tags.TileTag))
             {
-                Coordinate tileCoordinate = new Coordinate(Convert.ToDouble(tile.Attribute(MainStrings.PositionXAttributeName).Value),
-                    Convert.ToDouble(tile.Attribute(MainStrings.PositionYAttributeName).Value));
+                Coordinate tileCoordinate = new Coordinate(Convert.ToDouble(tile.Attribute(Tags.XPositionTag).Value),
+                    Convert.ToDouble(tile.Attribute(Tags.YPositionTag).Value));
 
-                _world.Add(tileCoordinate, TilesManager.GetTile(tile.Attribute(MainStrings.NameAttributeName).Value,
+                _world.Add(tileCoordinate, TilesManager.GetTile(tile.Attribute(Tags.NameTag).Value,
                     tileCoordinate));
             }
         }
