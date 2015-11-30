@@ -21,6 +21,15 @@ namespace EVO.Map
         private int _width;
         private int _height;
 
+        #region Constructors
+
+        public World()
+        {
+            _width = 0;
+            _height = 0;
+            _painter = new WorldPainter();
+        }
+
         public World(int width, int height)
         {
             _width = width;
@@ -35,6 +44,8 @@ namespace EVO.Map
             _height = height;
             _painter = new WorldPainter();
         }
+
+        #endregion
 
         #region Auto implemented properties
 
@@ -72,21 +83,20 @@ namespace EVO.Map
 
         #endregion
 
-        public Tile GetTile(Coordinate position)
-        {
-            return _world[position];
-        }
-
+        #region drawing functions
         public void Draw()
         {
             _painter.Draw(this);
         }
 
-        public void Generation(IWorldGenerator generator)
+        public void Draw(IWorldPainter painter)
         {
-            _world = generator.Generate(Width, Height);
+            painter.Draw(this);
         }
 
+        #endregion
+
+        #region data exchange
         public void Save(string path)
         {
             XElement tiles = new XElement(MainStrings.TilesTagName);
@@ -134,6 +144,23 @@ namespace EVO.Map
                 _world.Add(tileCoordinate, TilesManager.GetTile(tile.Attribute(MainStrings.NameAttributeName).Value,
                     tileCoordinate));
             }
+        }
+
+        #endregion
+
+        public override string ToString()
+        {
+            return _name;
+        }
+
+        public Tile GetTile(Coordinate position)
+        {
+            return _world[position];
+        }
+
+        public void Generation(IWorldGenerator generator)
+        {
+            _world = generator.Generate(Width, Height);
         }
     }
 }
