@@ -7,7 +7,7 @@ using EVO.Parameters;
 
 namespace EVO.Tiles
 {
-    static class TilesManager
+    public static class TilesManager
     {
         private static Tile[] _tilesList = {
             new DesertTile(new NullCoordinate()),
@@ -32,6 +32,11 @@ namespace EVO.Tiles
                     return tile.Copy(position);
 
             throw new Exception(EVOLibrary.ExceptionsStrings.WrongTileType);
+        }
+
+        public static Tile[] GetTileList()
+        {
+            return _tilesList;
         }
     }
 }

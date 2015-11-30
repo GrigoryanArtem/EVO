@@ -33,5 +33,10 @@ namespace EVO.Tiles
         {
             return new WaterTile(this, newCoordinate);
         }
+
+        public override string ToString()
+        {
+            return MainStrings.WaterTileTitle;
+        }
     }
 }

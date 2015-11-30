@@ -33,5 +33,10 @@ namespace EVO.Tiles
         {
             return new ForestTile(this, newCoordinate);
         }
+
+        public override string ToString()
+        {
+            return MainStrings.ForestTileTitle;
+        }
     }
 }
