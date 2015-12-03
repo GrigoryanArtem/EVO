@@ -10,14 +10,12 @@ using EVO.Map;
 
 namespace EVO.Painters
 {
-    public class PassabilityWorldPainter : IWorldPainter
+    public class HumidityWorldPainter : IWorldPainter
     {
         public void Draw(World world)
         {
-            Dictionary<Coordinate, Tile> map = world.Map;
-
-            foreach (var tile in map)
-                tile.Value.Draw(new PassabilityTilePainter());
+            CustomWorldPainter painter = new CustomWorldPainter(new HumidityTilePainter());
+            painter.Draw(world);
         }
     }
 }

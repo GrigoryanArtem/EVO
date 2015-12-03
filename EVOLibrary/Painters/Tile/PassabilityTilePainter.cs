@@ -33,7 +33,7 @@ namespace EVO.Painters
             if (value > 1)
                 value = 1;
 
-            Gl.glColor3d(0.4, value, 0.7);
+            Gl.glColor3d(value, 1, value);
         }
     }
 }

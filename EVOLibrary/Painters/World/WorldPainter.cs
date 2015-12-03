@@ -8,9 +8,6 @@ using EVO.Tiles;
 using EVO.Parameters;
 using EVOLibrary;
 using EVO.Map;
-using Tao.FreeGlut;
-using Tao.OpenGl;
-using Tao.Platform.Windows;
 
 namespace EVO.Painters
 {
