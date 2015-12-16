@@ -14,7 +14,7 @@ namespace EVO.Painters
         const int MAX_Humidity = 100;
         public void Draw(Tile tile)
         {
-            SetColor(tile.Properties.Humidity);
+            SetColor(tile.Properties.Passability);
 
             Gl.glBegin(Gl.GL_QUADS);
 

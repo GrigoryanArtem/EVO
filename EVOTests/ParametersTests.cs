@@ -41,5 +41,16 @@ namespace EVOTests
 
             Assert.IsTrue(a.IsNull());
         }
+
+        [TestMethod]
+        public void AddTest()
+        {
+            Coordinate a = new Coordinate(0, 0);
+            Coordinate b = new NullCoordinate();
+            Coordinate c = a + b;
+
+            Assert.IsFalse(a.IsNull());
+            Assert.AreEqual(a, c);
+        }
     }
 }
