@@ -15,6 +15,6 @@ namespace EVO.Tiles
 
         Coordinate Position { get; }
 
-        int Temperature { get; }
+        double Temperature { get; }
     }
 }

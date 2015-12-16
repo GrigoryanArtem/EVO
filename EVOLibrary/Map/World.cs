@@ -162,5 +162,24 @@ namespace EVO.Map
         {
             _world = generator.Generate(Width, Height);
         }
+
+        public void Normalize()
+        {
+            Coordinate[] neighbors = { new Coordinate(-1, 0), new Coordinate(1, 0),
+                new Coordinate(0,  1), new Coordinate(0, -1), new Coordinate(0, 0),
+                new Coordinate(1, 1), new Coordinate(-1,  1), new Coordinate(1, -1),
+                new Coordinate(-1, -1)};
+
+            foreach (var tile in _world)
+            {
+                List<Tile> temp = new List<Tile>();
+
+                foreach (var coord in neighbors)
+                    if (_world.ContainsKey(tile.Key + coord))
+                        temp.Add(_world[tile.Key + coord]);
+
+                tile.Value.Normalize(temp);
+            }
+        }
     }
 }

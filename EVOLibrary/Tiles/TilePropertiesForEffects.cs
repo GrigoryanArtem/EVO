@@ -5,28 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using EVO.Parameters;
 using EVOLibrary;
+using EVO.Painters;
 
 namespace EVO.Tiles
 {
-    public class TileProperties : ITileProperties, IIntrinsicTileProperties
+    class TilePropertiesForEffects : IIntrinsicTileProperties, ITileProperties
     {
-        #region constants
-
-        private const int MIN_TEMPERATURE = -273;
-        private const int MIN_PASSABIILITY = 0;
-        private const int MAX_PASSABIILITY = 100;
-        private const int MIN_HUMIDITY = 0;
-        private const int MAX_HUMIDITY = 100;
-
-        #endregion
-
         private int _humidity;
         private int _passability;
         private Coordinate _position;
         private double _temperature;
 
         #region constructors
-        public TileProperties()
+        public TilePropertiesForEffects()
         {
             Humidity = 0;
             Passability = 0;
@@ -34,7 +25,7 @@ namespace EVO.Tiles
             Temperature = 0;
         }
 
-        public TileProperties(int humidity, int passability, Coordinate position, double temperature)
+        public TilePropertiesForEffects(int humidity, int passability, Coordinate position, double temperature)
         {
             Humidity = humidity;
             Passability = passability;
@@ -42,7 +33,7 @@ namespace EVO.Tiles
             Temperature = temperature;
         }
 
-        public TileProperties(ITileProperties tileProperties)
+        public TilePropertiesForEffects(ITileProperties tileProperties)
         {
             Humidity = tileProperties.Humidity;
             Passability = tileProperties.Passability;
@@ -50,7 +41,7 @@ namespace EVO.Tiles
             Temperature = tileProperties.Temperature;
         }
 
-        public TileProperties(IIntrinsicTileProperties tileProperties)
+        public TilePropertiesForEffects(IIntrinsicTileProperties tileProperties)
         {
             Humidity = tileProperties.Humidity;
             Passability = tileProperties.Passability;
@@ -62,12 +53,10 @@ namespace EVO.Tiles
 
         #region auto implemented properties
 
-        public int Humidity {
+        public int Humidity
+        {
             set
             {
-                if (value < MIN_HUMIDITY || value > MAX_HUMIDITY)
-                    throw new Exception(ExceptionsStrings.HumidityException);
-
                 _humidity = value;
             }
 
@@ -77,12 +66,10 @@ namespace EVO.Tiles
             }
         }
 
-        public int Passability {
+        public int Passability
+        {
             set
             {
-                if (value < MIN_PASSABIILITY || value > MAX_PASSABIILITY)
-                    throw new Exception(ExceptionsStrings.PassabilityException);
-
                 _passability = value;
             }
 
@@ -92,7 +79,8 @@ namespace EVO.Tiles
             }
         }
 
-        public Coordinate Position {
+        public Coordinate Position
+        {
             set
             {
                 _position = value;
@@ -103,12 +91,10 @@ namespace EVO.Tiles
             }
         }
 
-        public double Temperature {
+        public double Temperature
+        {
             set
             {
-                if (value < MIN_TEMPERATURE)
-                    throw new Exception(ExceptionsStrings.TemperatureException);
-
                 _temperature = value;
             }
             get
@@ -121,7 +107,7 @@ namespace EVO.Tiles
 
         public IIntrinsicTileProperties Add(IIntrinsicTileProperties properties)
         {
-            return new TileProperties(Humidity + properties.Humidity, Passability + properties.Passability,
+            return new TilePropertiesForEffects(Humidity + properties.Humidity, Passability + properties.Passability,
                 Position, Temperature + properties.Temperature);
         }
     }

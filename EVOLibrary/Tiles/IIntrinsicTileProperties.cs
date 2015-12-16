@@ -15,6 +15,8 @@ namespace EVO.Tiles
 
         Coordinate Position { set; get; }
 
-        int Temperature { set; get; }
+        double Temperature { set; get; }
+
+        IIntrinsicTileProperties Add(IIntrinsicTileProperties properties);
     }
 }

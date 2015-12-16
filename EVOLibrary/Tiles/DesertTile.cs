@@ -22,6 +22,7 @@ namespace EVO.Tiles
             _painter = new DesertTilePainter();
             _name = MainStrings.DesertTileName;
             _properties = new TileProperties(0, 50, position, 40);
+            _effects = new TilePropertiesForEffects();
         }
 
         public override Tile Copy()

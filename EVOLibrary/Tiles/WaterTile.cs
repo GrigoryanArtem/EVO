@@ -22,6 +22,7 @@ namespace EVO.Tiles
             _painter = new WaterTilePainter();
             _name = MainStrings.WaterTileName;
             _properties = new TileProperties(100, 100, position, 17);
+            _effects = new TilePropertiesForEffects();
         }
 
         public override Tile Copy()

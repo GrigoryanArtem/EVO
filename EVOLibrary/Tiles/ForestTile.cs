@@ -22,6 +22,7 @@ namespace EVO.Tiles
             _painter = new ForestTilePainter();
             _name = MainStrings.ForestTileName;
             _properties = new TileProperties(75, 25, position, 20);
+            _effects = new TilePropertiesForEffects();
         }
 
         public override Tile Copy()

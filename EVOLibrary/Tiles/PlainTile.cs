@@ -22,6 +22,7 @@ namespace EVO.Tiles
             _painter = new PlainTilePainter();
             _name = MainStrings.PlainTileName;
             _properties = new TileProperties(40, 80, position, 28);
+            _effects = new TilePropertiesForEffects();
         }
 
         public override Tile Copy()
