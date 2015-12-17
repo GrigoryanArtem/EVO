@@ -13,6 +13,7 @@ using Tao.Platform.Windows;
 using EVO.Map;
 using EVO.Tiles;
 using EVO.Parameters;
+using EVO.Painters;
 
 namespace EVOGUI
 {
@@ -21,18 +22,21 @@ namespace EVOGUI
         private const int START_COORDINATE = 0;
 
         private World _world;
+        private IWorldPainter _worldPainter;
 
         public MainForm(World world)
         {
             InitializeComponent();
             _mainDrawingBox.InitializeContexts();
             _world = world;
+            _worldPainter = new WorldPainter();
         }
 
         private void MainFormLoad(object sender, EventArgs e)
         {
             CustomizeDrawingBox();
             Draw();
+            _lWorldName.Text = _world.Name;
         }
 
         private void mainDrawingBoxMouseClick(object sender, MouseEventArgs e)
@@ -66,7 +70,7 @@ namespace EVOGUI
         private void Draw()
         {
             Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
-            _world.Draw();
+            _world.Draw(_worldPainter);
             _mainDrawingBox.Invalidate();
         }
 
@@ -93,5 +97,40 @@ namespace EVOGUI
         }
 
         #endregion
+
+        private void StdPainterClick(object sender, EventArgs e)
+        {
+            _worldPainter = new WorldPainter();
+            Draw();
+        }
+
+        private void TemperaturePainterClick(object sender, EventArgs e)
+        {
+            _worldPainter = new TemperatureWorldPainter();
+            Draw();
+        }
+
+        private void HumidityPainterClick(object sender, EventArgs e)
+        {
+            _worldPainter = new HumidityWorldPainter();
+            Draw();
+        }
+
+        private void PassabilityPainterClick(object sender, EventArgs e)
+        {
+            _worldPainter = new PassabilityWorldPainter();
+            Draw();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _timer.Enabled = !_timer.Enabled;
+        }
+
+        private void timerTick(object sender, EventArgs e)
+        {
+            _world.Normalize();
+            Draw();
+        }
     }
 }

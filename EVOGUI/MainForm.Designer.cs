@@ -28,30 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this._mainDrawingBox = new Tao.Platform.Windows.SimpleOpenGlControl();
             this.tabControl = new System.Windows.Forms.TabControl();
             this._tpWorld = new System.Windows.Forms.TabPage();
+            this._tlpWorld = new System.Windows.Forms.TableLayoutPanel();
+            this._lWorldName = new System.Windows.Forms.Label();
+            this._bStdPainter = new System.Windows.Forms.Button();
+            this._bTemperaturePainter = new System.Windows.Forms.Button();
+            this._bHumidityPainter = new System.Windows.Forms.Button();
+            this._bPassabilityPainter = new System.Windows.Forms.Button();
+            this._btnTimerToggle = new System.Windows.Forms.Button();
+            this._tpTiles = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this._lTileName = new System.Windows.Forms.Label();
             this._tpOrganism = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this._tpHistory = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this._tpStatistic = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
-            this._tlpWorld = new System.Windows.Forms.TableLayoutPanel();
-            this._lTileName = new System.Windows.Forms.Label();
+            this._timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this._tpWorld.SuspendLayout();
+            this._tlpWorld.SuspendLayout();
+            this._tpTiles.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this._tpOrganism.SuspendLayout();
             this._tpHistory.SuspendLayout();
             this._tpStatistic.SuspendLayout();
-            this._tlpWorld.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -104,6 +116,7 @@
             // 
             this.tabControl.Alignment = System.Windows.Forms.TabAlignment.Right;
             this.tabControl.Controls.Add(this._tpWorld);
+            this.tabControl.Controls.Add(this._tpTiles);
             this.tabControl.Controls.Add(this._tpOrganism);
             this.tabControl.Controls.Add(this._tpHistory);
             this.tabControl.Controls.Add(this._tpStatistic);
@@ -113,7 +126,6 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(245, 436);
-            this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 0;
             // 
             // _tpWorld
@@ -127,6 +139,155 @@
             this._tpWorld.TabIndex = 0;
             this._tpWorld.Text = "World";
             this._tpWorld.UseVisualStyleBackColor = true;
+            // 
+            // _tlpWorld
+            // 
+            this._tlpWorld.ColumnCount = 1;
+            this._tlpWorld.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._tlpWorld.Controls.Add(this._lWorldName, 0, 0);
+            this._tlpWorld.Controls.Add(this._bStdPainter, 0, 2);
+            this._tlpWorld.Controls.Add(this._bTemperaturePainter, 0, 3);
+            this._tlpWorld.Controls.Add(this._bHumidityPainter, 0, 4);
+            this._tlpWorld.Controls.Add(this._bPassabilityPainter, 0, 5);
+            this._tlpWorld.Controls.Add(this._btnTimerToggle, 0, 7);
+            this._tlpWorld.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._tlpWorld.Location = new System.Drawing.Point(3, 3);
+            this._tlpWorld.Name = "_tlpWorld";
+            this._tlpWorld.RowCount = 9;
+            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.535147F));
+            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.545946F));
+            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.91891F));
+            this._tlpWorld.Size = new System.Drawing.Size(212, 422);
+            this._tlpWorld.TabIndex = 0;
+            // 
+            // _lWorldName
+            // 
+            this._lWorldName.AutoSize = true;
+            this._lWorldName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._lWorldName.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._lWorldName.Location = new System.Drawing.Point(3, 0);
+            this._lWorldName.Name = "_lWorldName";
+            this._lWorldName.Size = new System.Drawing.Size(206, 40);
+            this._lWorldName.TabIndex = 0;
+            this._lWorldName.Text = "World Name";
+            this._lWorldName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // _bStdPainter
+            // 
+            this._bStdPainter.BackColor = System.Drawing.Color.LightGray;
+            this._bStdPainter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._bStdPainter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._bStdPainter.Location = new System.Drawing.Point(3, 48);
+            this._bStdPainter.Name = "_bStdPainter";
+            this._bStdPainter.Size = new System.Drawing.Size(206, 44);
+            this._bStdPainter.TabIndex = 1;
+            this._bStdPainter.Text = "STD";
+            this._bStdPainter.UseVisualStyleBackColor = false;
+            this._bStdPainter.Click += new System.EventHandler(this.StdPainterClick);
+            // 
+            // _bTemperaturePainter
+            // 
+            this._bTemperaturePainter.BackColor = System.Drawing.Color.LightGray;
+            this._bTemperaturePainter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._bTemperaturePainter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._bTemperaturePainter.Location = new System.Drawing.Point(3, 98);
+            this._bTemperaturePainter.Name = "_bTemperaturePainter";
+            this._bTemperaturePainter.Size = new System.Drawing.Size(206, 44);
+            this._bTemperaturePainter.TabIndex = 2;
+            this._bTemperaturePainter.Text = "Temperature";
+            this._bTemperaturePainter.UseVisualStyleBackColor = false;
+            this._bTemperaturePainter.Click += new System.EventHandler(this.TemperaturePainterClick);
+            // 
+            // _bHumidityPainter
+            // 
+            this._bHumidityPainter.BackColor = System.Drawing.Color.LightGray;
+            this._bHumidityPainter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._bHumidityPainter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._bHumidityPainter.Location = new System.Drawing.Point(3, 148);
+            this._bHumidityPainter.Name = "_bHumidityPainter";
+            this._bHumidityPainter.Size = new System.Drawing.Size(206, 44);
+            this._bHumidityPainter.TabIndex = 3;
+            this._bHumidityPainter.Text = "Humidity";
+            this._bHumidityPainter.UseVisualStyleBackColor = false;
+            this._bHumidityPainter.Click += new System.EventHandler(this.HumidityPainterClick);
+            // 
+            // _bPassabilityPainter
+            // 
+            this._bPassabilityPainter.BackColor = System.Drawing.Color.LightGray;
+            this._bPassabilityPainter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._bPassabilityPainter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._bPassabilityPainter.Location = new System.Drawing.Point(3, 198);
+            this._bPassabilityPainter.Name = "_bPassabilityPainter";
+            this._bPassabilityPainter.Size = new System.Drawing.Size(206, 44);
+            this._bPassabilityPainter.TabIndex = 4;
+            this._bPassabilityPainter.Text = "Passability";
+            this._bPassabilityPainter.UseVisualStyleBackColor = false;
+            this._bPassabilityPainter.Click += new System.EventHandler(this.PassabilityPainterClick);
+            // 
+            // _btnTimerToggle
+            // 
+            this._btnTimerToggle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._btnTimerToggle.Location = new System.Drawing.Point(3, 254);
+            this._btnTimerToggle.Name = "_btnTimerToggle";
+            this._btnTimerToggle.Size = new System.Drawing.Size(206, 44);
+            this._btnTimerToggle.TabIndex = 5;
+            this._btnTimerToggle.Text = "Timer Toggle";
+            this._btnTimerToggle.UseVisualStyleBackColor = true;
+            this._btnTimerToggle.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // _tpTiles
+            // 
+            this._tpTiles.Controls.Add(this.tableLayoutPanel1);
+            this._tpTiles.Location = new System.Drawing.Point(4, 4);
+            this._tpTiles.Name = "_tpTiles";
+            this._tpTiles.Size = new System.Drawing.Size(218, 428);
+            this._tpTiles.TabIndex = 4;
+            this._tpTiles.Text = "Tiles";
+            this._tpTiles.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this._lTileName, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 14;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(218, 428);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // _lTileName
+            // 
+            this._lTileName.AutoSize = true;
+            this._lTileName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._lTileName.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._lTileName.Location = new System.Drawing.Point(3, 0);
+            this._lTileName.Name = "_lTileName";
+            this._lTileName.Size = new System.Drawing.Size(212, 50);
+            this._lTileName.TabIndex = 0;
+            this._lTileName.Text = "Tile Name";
+            this._lTileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // _tpOrganism
             // 
@@ -198,32 +359,10 @@
             this.label4.Text = "Coming soon...";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // _tlpWorld
+            // _timer
             // 
-            this._tlpWorld.ColumnCount = 1;
-            this._tlpWorld.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._tlpWorld.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this._tlpWorld.Controls.Add(this._lTileName, 0, 0);
-            this._tlpWorld.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._tlpWorld.Location = new System.Drawing.Point(3, 3);
-            this._tlpWorld.Name = "_tlpWorld";
-            this._tlpWorld.RowCount = 2;
-            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.398104F));
-            this._tlpWorld.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.6019F));
-            this._tlpWorld.Size = new System.Drawing.Size(212, 422);
-            this._tlpWorld.TabIndex = 0;
-            // 
-            // _lTileName
-            // 
-            this._lTileName.AutoSize = true;
-            this._lTileName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._lTileName.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this._lTileName.Location = new System.Drawing.Point(3, 0);
-            this._lTileName.Name = "_lTileName";
-            this._lTileName.Size = new System.Drawing.Size(206, 26);
-            this._lTileName.TabIndex = 0;
-            this._lTileName.Text = "Tile Name";
-            this._lTileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this._timer.Interval = 1500;
+            this._timer.Tick += new System.EventHandler(this.timerTick);
             // 
             // MainForm
             // 
@@ -245,14 +384,17 @@
             this.splitContainer1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this._tpWorld.ResumeLayout(false);
+            this._tlpWorld.ResumeLayout(false);
+            this._tlpWorld.PerformLayout();
+            this._tpTiles.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this._tpOrganism.ResumeLayout(false);
             this._tpOrganism.PerformLayout();
             this._tpHistory.ResumeLayout(false);
             this._tpHistory.PerformLayout();
             this._tpStatistic.ResumeLayout(false);
             this._tpStatistic.PerformLayout();
-            this._tlpWorld.ResumeLayout(false);
-            this._tlpWorld.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,6 +414,15 @@
         private System.Windows.Forms.Label label4;
         private Tao.Platform.Windows.SimpleOpenGlControl _mainDrawingBox;
         private System.Windows.Forms.TableLayoutPanel _tlpWorld;
+        private System.Windows.Forms.Label _lWorldName;
+        private System.Windows.Forms.TabPage _tpTiles;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label _lTileName;
+        private System.Windows.Forms.Button _bStdPainter;
+        private System.Windows.Forms.Button _bTemperaturePainter;
+        private System.Windows.Forms.Button _bHumidityPainter;
+        private System.Windows.Forms.Button _bPassabilityPainter;
+        private System.Windows.Forms.Button _btnTimerToggle;
+        private System.Windows.Forms.Timer _timer;
     }
 }
