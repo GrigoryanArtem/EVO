@@ -13,7 +13,11 @@ namespace EVO.Tiles
             new DesertTile(new NullCoordinate()),
             new PlainTile(new NullCoordinate()),
             new ForestTile(new NullCoordinate()),
-            new WaterTile(new NullCoordinate())
+            new WaterTile(new NullCoordinate()),
+            new TundraTile(new NullCoordinate()),
+            new SwamplandTile(new NullCoordinate()),
+            new MountainsTile(new NullCoordinate()),
+            new JungleTile(new NullCoordinate())
         };
 
         public static bool Check(string TileName)
