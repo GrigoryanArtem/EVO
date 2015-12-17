@@ -43,6 +43,7 @@ namespace EVOGUI
         private void mainDrawingBoxMouseClick(object sender, MouseEventArgs e)
         {
             _currentTile = SelectTile(new Coordinate(e.X, e.Y));
+            UpdateTileInfo();
         }
 
         #region Painters Function
@@ -131,11 +132,13 @@ namespace EVOGUI
         private void timerTick(object sender, EventArgs e)
         {
             _world.Normalize();
+            UpdateTileInfo();
             Draw();
         }
 
         private void UpdateTileInfo()
         {
+            _lTileName.Text = _currentTile.Name;
             _lPosition.Text = _currentTile.Properties.Position.ToString();
             _lTemperature.Text = _currentTile.Properties.Temperature.ToString();
             _lPassability.Text = _currentTile.Properties.Passability.ToString();
