@@ -45,6 +45,10 @@
             this._tpTiles = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this._lTileName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this._tpOrganism = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this._tpHistory = new System.Windows.Forms.TabPage();
@@ -52,6 +56,10 @@
             this._tpStatistic = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this._timer = new System.Windows.Forms.Timer(this.components);
+            this._lPosition = new System.Windows.Forms.Label();
+            this._lTemperature = new System.Windows.Forms.Label();
+            this._lPassability = new System.Windows.Forms.Label();
+            this._lHumidity = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -256,23 +264,31 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this._lTileName, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 11);
+            this.tableLayoutPanel1.Controls.Add(this._lPosition, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this._lTemperature, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this._lPassability, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this._lHumidity, 0, 12);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 14;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(218, 428);
             this.tableLayoutPanel1.TabIndex = 1;
@@ -280,6 +296,7 @@
             // _lTileName
             // 
             this._lTileName.AutoSize = true;
+            this._lTileName.BackColor = System.Drawing.Color.DarkGray;
             this._lTileName.Dock = System.Windows.Forms.DockStyle.Fill;
             this._lTileName.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._lTileName.Location = new System.Drawing.Point(3, 0);
@@ -288,6 +305,58 @@
             this._lTileName.TabIndex = 0;
             this._lTileName.Text = "Tile Name";
             this._lTileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Gainsboro;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(3, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(212, 30);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Position";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Gainsboro;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(3, 120);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(212, 30);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Temperature";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Gainsboro;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(3, 185);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(212, 30);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Passability";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Gainsboro;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(3, 250);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(212, 30);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Humidity";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // _tpOrganism
             // 
@@ -364,6 +433,54 @@
             this._timer.Interval = 1500;
             this._timer.Tick += new System.EventHandler(this.timerTick);
             // 
+            // _lPosition
+            // 
+            this._lPosition.AutoSize = true;
+            this._lPosition.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._lPosition.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._lPosition.Location = new System.Drawing.Point(3, 85);
+            this._lPosition.Name = "_lPosition";
+            this._lPosition.Size = new System.Drawing.Size(212, 30);
+            this._lPosition.TabIndex = 5;
+            this._lPosition.Text = "99 99";
+            this._lPosition.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // _lTemperature
+            // 
+            this._lTemperature.AutoSize = true;
+            this._lTemperature.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._lTemperature.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._lTemperature.Location = new System.Drawing.Point(3, 150);
+            this._lTemperature.Name = "_lTemperature";
+            this._lTemperature.Size = new System.Drawing.Size(212, 30);
+            this._lTemperature.TabIndex = 6;
+            this._lTemperature.Text = "123";
+            this._lTemperature.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // _lPassability
+            // 
+            this._lPassability.AutoSize = true;
+            this._lPassability.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._lPassability.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._lPassability.Location = new System.Drawing.Point(3, 215);
+            this._lPassability.Name = "_lPassability";
+            this._lPassability.Size = new System.Drawing.Size(212, 30);
+            this._lPassability.TabIndex = 7;
+            this._lPassability.Text = "99";
+            this._lPassability.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // _lHumidity
+            // 
+            this._lHumidity.AutoSize = true;
+            this._lHumidity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._lHumidity.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this._lHumidity.Location = new System.Drawing.Point(3, 280);
+            this._lHumidity.Name = "_lHumidity";
+            this._lHumidity.Size = new System.Drawing.Size(212, 30);
+            this._lHumidity.TabIndex = 8;
+            this._lHumidity.Text = "99";
+            this._lHumidity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,5 +541,13 @@
         private System.Windows.Forms.Button _bPassabilityPainter;
         private System.Windows.Forms.Button _btnTimerToggle;
         private System.Windows.Forms.Timer _timer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label _lPosition;
+        private System.Windows.Forms.Label _lTemperature;
+        private System.Windows.Forms.Label _lPassability;
+        private System.Windows.Forms.Label _lHumidity;
     }
 }

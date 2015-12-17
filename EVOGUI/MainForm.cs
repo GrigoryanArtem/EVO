@@ -23,6 +23,7 @@ namespace EVOGUI
 
         private World _world;
         private IWorldPainter _worldPainter;
+        private Tile _currentTile;
 
         public MainForm(World world)
         {
@@ -41,7 +42,7 @@ namespace EVOGUI
 
         private void mainDrawingBoxMouseClick(object sender, MouseEventArgs e)
         {
-            _lTileName.Text = SelectTile(new Coordinate(e.X, e.Y)).Name;
+            _currentTile = SelectTile(new Coordinate(e.X, e.Y));
         }
 
         #region Painters Function
@@ -131,6 +132,14 @@ namespace EVOGUI
         {
             _world.Normalize();
             Draw();
+        }
+
+        private void UpdateTileInfo()
+        {
+            _lPosition.Text = _currentTile.Properties.Position.ToString();
+            _lTemperature.Text = _currentTile.Properties.Temperature.ToString();
+            _lPassability.Text = _currentTile.Properties.Passability.ToString();
+            _lHumidity.Text = _currentTile.Properties.Humidity.ToString();
         }
     }
 }
